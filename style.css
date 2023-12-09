@@ -1,6 +1,4 @@
 * {
-  margin: 0;
-  padding: 0;
   box-sizing: border-box;
 }
 
@@ -9,87 +7,62 @@ body {
   font-family: "Poppins", sans-serif;
 }
 
-.navbar {
-  width: 100vw;
-  height: 15vh;
+nav {
+  height: 70px;
   display: flex;
-  align-items: center;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px 36px;
+  box-shadow: 0px 2.98256px 7.4564px rgba(0, 0, 0, 0.1);
 }
 
-.navbar img {
+.bold {
+  font-weight: bold;
+}
+
+.gray {
+  color: #918e9b;
+}
+
+.nav--logo {
   max-width: 100px;
-  padding: 0 0 0 20px;
 }
 
-.photo-container {
+section {
+  padding: 20px;
+}
+
+.hero {
   display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.photo-container img {
-  margin: 20px auto;
-  width: 80%;
-}
-
-.content-container {
-  margin: 0 20px;
-}
-
-.content-container h1 {
-  white-space: nowrap;
-}
-
-.content-container span {
-  text-align: left;
-}
-
-.activities {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-}
-
-figure {
-  display: flex;
-  position: relative;
   flex-direction: column;
 }
 
-figure .star {
-  border-radius: 15px;
-  width: 15px;
-  margin: 0 3px 0 0;
+.hero--photo {
+  max-width: 400px;
+  align-self: center;
 }
 
-.activities .status {
-  position: absolute;
-  left: 10px;
-  top: 10px;
-  width: 80px;
-  text-align: center;
-  padding: 5px;
-  font-size: 14px;
-  background: white;
+.hero--header {
+  margin-bottom: 16px;
 }
 
-.status-photo {
-  border-radius: 15px;
-  width: 195px;
+.hero--text {
+  margin-top: 0;
 }
 
-.status-span {
-  display: flex;
+.card {
+  width: 175px;
   font-size: 12px;
-  padding: 7px 0 0 0;
-  letter-spacing: 0.6px;
 }
 
-.status-photo {
-  padding: 0 0 5px 0;
+.card--image {
+  width: 100%;
+  border-radius: 9px;
 }
 
-p {
-  padding: 0 0 0 2px;
-  color: rgba(0, 0, 0, 0.7);
+.card--stats {
+  display: flex;
+  align-items: center;
+}
+
+.card--star {
+  height: 14px;
 }

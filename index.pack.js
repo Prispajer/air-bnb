@@ -375,6 +375,68 @@ module.exports = shouldUseNative() ? Object.assign : function (target, source) {
 "use strict";
 /* WEBPACK VAR INJECTION */(function(process) {
 
+if (process.env.NODE_ENV === 'production') {
+  module.exports = __webpack_require__(17);
+} else {
+  module.exports = __webpack_require__(16);
+}
+
+/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
+
+/***/ }),
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = App;
+
+var _react = __webpack_require__(1);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _Navbar = __webpack_require__(8);
+
+var _Navbar2 = _interopRequireDefault(_Navbar);
+
+var _Hero = __webpack_require__(7);
+
+var _Hero2 = _interopRequireDefault(_Hero);
+
+var _Card = __webpack_require__(6);
+
+var _Card2 = _interopRequireDefault(_Card);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function App() {
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(_Navbar2.default, null),
+    _react2.default.createElement(_Hero2.default, null),
+    _react2.default.createElement(_Card2.default, {
+      img: "katie-zaferes.png",
+      rating: "5.0",
+      reviewCount: 6,
+      country: "USA",
+      title: "Life Lessons with Katie Zaferes",
+      price: 136
+    })
+  );
+}
+
+/***/ }),
+/* 5 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+/* WEBPACK VAR INJECTION */(function(process) {
+
 function checkDCE() {
   /* global __REACT_DEVTOOLS_GLOBAL_HOOK__ */
   if (
@@ -415,67 +477,6 @@ if (process.env.NODE_ENV === 'production') {
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
 
 /***/ }),
-/* 4 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-/* WEBPACK VAR INJECTION */(function(process) {
-
-if (process.env.NODE_ENV === 'production') {
-  module.exports = __webpack_require__(17);
-} else {
-  module.exports = __webpack_require__(16);
-}
-
-/* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(0)))
-
-/***/ }),
-/* 5 */
-/***/ (function(module, exports, __webpack_require__) {
-
-"use strict";
-
-
-Object.defineProperty(exports, "__esModule", {
-  value: true
-});
-exports.default = App;
-
-var _react = __webpack_require__(1);
-
-var _react2 = _interopRequireDefault(_react);
-
-var _reactDom = __webpack_require__(3);
-
-var _reactDom2 = _interopRequireDefault(_reactDom);
-
-var _Navbar = __webpack_require__(8);
-
-var _Navbar2 = _interopRequireDefault(_Navbar);
-
-var _Hero = __webpack_require__(7);
-
-var _Hero2 = _interopRequireDefault(_Hero);
-
-var _Card = __webpack_require__(6);
-
-var _Card2 = _interopRequireDefault(_Card);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function App() {
-  return _react2.default.createElement(
-    "div",
-    null,
-    _react2.default.createElement(_Navbar2.default, null),
-    _react2.default.createElement(_Hero2.default, null),
-    _react2.default.createElement(_Card2.default, null)
-  );
-}
-
-_reactDom2.default.render(_react2.default.createElement(App, null), document.querySelector("#root"));
-
-/***/ }),
 /* 6 */
 /***/ (function(module, exports, __webpack_require__) {
 
@@ -493,50 +494,48 @@ var _react2 = _interopRequireDefault(_react);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-function Card() {
+function Card(props) {
   return _react2.default.createElement(
-    "section",
-    { className: "activities" },
+    "div",
+    { className: "card" },
+    _react2.default.createElement("img", { src: "../images/" + props.img, className: "card--image" }),
     _react2.default.createElement(
-      "figure",
-      null,
-      _react2.default.createElement("img", {
-        "class": "status-photo",
-        src: "../images/katie-zaferes.png",
-        alt: "first"
-      }),
+      "div",
+      { className: "card--stats" },
+      _react2.default.createElement("img", { src: "../images/star.png", className: "card--star" }),
       _react2.default.createElement(
         "span",
-        { "class": "status" },
-        "SOLD OUT"
+        null,
+        props.rating
       ),
       _react2.default.createElement(
         "span",
-        { "class": "status-span" },
-        _react2.default.createElement("img", { "class": "star", src: "../images/star.png" }),
-        " 5.0",
-        " ",
-        _react2.default.createElement(
-          "p",
-          null,
-          "(6) \u2022 USA"
-        )
+        { className: "gray" },
+        "(",
+        props.reviewCount,
+        ") \u2022 "
       ),
       _react2.default.createElement(
         "span",
-        { "class": "status-span" },
-        "Life lessons with Katie Zafares"
-      ),
-      _react2.default.createElement(
-        "span",
-        { "class": "status-span" },
-        _react2.default.createElement(
-          "b",
-          null,
-          "From $136"
-        ),
-        " / person"
+        { className: "gray" },
+        props.country
       )
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      props.title
+    ),
+    _react2.default.createElement(
+      "p",
+      null,
+      _react2.default.createElement(
+        "span",
+        { className: "bold" },
+        "From $",
+        props.price
+      ),
+      " / person"
     )
   );
 }
@@ -561,26 +560,18 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Hero() {
   return _react2.default.createElement(
-    "main",
-    null,
+    "section",
+    { className: "hero" },
+    _react2.default.createElement("img", { src: "../images/photo-grid.png", className: "hero--photo" }),
     _react2.default.createElement(
-      "section",
-      { className: "photo-container" },
-      _react2.default.createElement("img", { src: "../images/photo-grid.png", alt: "grid" })
+      "h1",
+      { className: "hero--header" },
+      "Online Experiences"
     ),
     _react2.default.createElement(
-      "section",
-      { className: "content-container" },
-      _react2.default.createElement(
-        "h1",
-        null,
-        "Online Experiences"
-      ),
-      _react2.default.createElement(
-        "span",
-        null,
-        "Join unique interactive activities led by one-of-a-kind hosts-all without leaving home"
-      )
+      "p",
+      { className: "hero--text" },
+      "Join unique interactive activities led by one-of-a-kind hosts\u2014all without leaving home."
     )
   );
 }
@@ -605,13 +596,9 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 function Navbar() {
   return _react2.default.createElement(
-    "div",
+    "nav",
     null,
-    _react2.default.createElement(
-      "nav",
-      { className: "navbar" },
-      _react2.default.createElement("img", { src: "../images/airbnb-logo.png", alt: "logo" })
-    )
+    _react2.default.createElement("img", { src: "../images/airbnb-logo.png", className: "nav--logo" })
   );
 }
 
@@ -626,11 +613,11 @@ var _react = __webpack_require__(1);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(3);
+var _reactDom = __webpack_require__(5);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _App = __webpack_require__(5);
+var _App = __webpack_require__(4);
 
 var _App2 = _interopRequireDefault(_App);
 
@@ -660,7 +647,7 @@ if (process.env.NODE_ENV !== "production") {
 
 var React = __webpack_require__(1);
 var _assign = __webpack_require__(2);
-var Scheduler = __webpack_require__(4);
+var Scheduler = __webpack_require__(3);
 var tracing = __webpack_require__(18);
 
 var ReactSharedInternals = React.__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED;
@@ -26924,7 +26911,7 @@ exports.version = ReactVersion;
 /*
  Modernizr 3.0.0pre (Custom Build) | MIT
 */
-var aa=__webpack_require__(1),m=__webpack_require__(2),r=__webpack_require__(4);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
+var aa=__webpack_require__(1),m=__webpack_require__(2),r=__webpack_require__(3);function y(a){for(var b="https://reactjs.org/docs/error-decoder.html?invariant="+a,c=1;c<arguments.length;c++)b+="&args[]="+encodeURIComponent(arguments[c]);return"Minified React error #"+a+"; visit "+b+" for the full message or use the non-minified dev environment for full errors and additional helpful warnings."}if(!aa)throw Error(y(227));var ba=new Set,ca={};function da(a,b){ea(a,b);ea(a+"Capture",b)}
 function ea(a,b){ca[a]=b;for(a=0;a<b.length;a++)ba.add(b[a])}
 var fa=!("undefined"===typeof window||"undefined"===typeof window.document||"undefined"===typeof window.document.createElement),ha=/^[:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD][:A-Z_a-z\u00C0-\u00D6\u00D8-\u00F6\u00F8-\u02FF\u0370-\u037D\u037F-\u1FFF\u200C-\u200D\u2070-\u218F\u2C00-\u2FEF\u3001-\uD7FF\uF900-\uFDCF\uFDF0-\uFFFD\-.0-9\u00B7\u0300-\u036F\u203F-\u2040]*$/,ia=Object.prototype.hasOwnProperty,
 ja={},ka={};function la(a){if(ia.call(ka,a))return!0;if(ia.call(ja,a))return!1;if(ha.test(a))return ka[a]=!0;ja[a]=!0;return!1}function ma(a,b,c,d){if(null!==c&&0===c.type)return!1;switch(typeof b){case "function":case "symbol":return!0;case "boolean":if(d)return!1;if(null!==c)return!c.acceptsBooleans;a=a.toLowerCase().slice(0,5);return"data-"!==a&&"aria-"!==a;default:return!1}}
