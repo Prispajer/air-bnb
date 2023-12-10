@@ -8,18 +8,18 @@ export default function App() {
   const mappedElements = Data.map((element) => {
     return (
       <Card
-        key={element.id}
         id={element.id}
-        title={element.title}
-        description={element.description}
-        price={element.price}
-        coverImg={element.coverImg}
-        stats={{
-          rating: element.rating,
-          reviewCount: element.reviewCount,
-        }}
-        location={element.location}
-        openSpots={element.openSpots}
+        {...element}
+        // title={element.title}
+        // description={element.description}
+        // price={element.price}
+        // coverImg={element.coverImg}
+        // stats={{
+        //   rating: element.rating,
+        //   reviewCount: element.reviewCount,
+        // }}
+        // location={element.location}
+        // openSpots={element.openSpots}
       />
     );
   });

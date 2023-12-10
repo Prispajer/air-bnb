@@ -40,12 +40,13 @@ section {
 }
 
 .hero--photo {
-  max-width: 400px;
+  max-width: 100%;
   align-self: center;
 }
 
 .hero--header {
-  margin-bottom: 16px;
+  margin: 16px 0 0 16px;
+  font-size: 40px;
 }
 
 .hero--text {
@@ -54,7 +55,8 @@ section {
 
 .cards-list {
   display: flex;
-  flex-wrap: nowrap;
+  flex-wrap: wrap;
+  width: 100%;
   gap: 20px;
   overflow-x: auto;
   justify-content: center;
